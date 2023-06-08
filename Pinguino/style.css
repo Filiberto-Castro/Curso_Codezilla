@@ -1,14 +1,46 @@
 .pinguino {
-    --pinguino-barriga: gray;
-    --pinguino-pico: yellow;
-    position: relative;
-    margin: auto;
-    display: block;
-    margin-top: 5%;
-    width: 300px;
-    height: 300px;
-  }
+  --pinguino-barriga: gray;
+  --pinguino-pico: yellow;
+  position: relative;
+  margin: auto;
+  display: block;
+  margin-top: 5%;
+  width: 300px;
+  height: 300px;
+}
   
+h1{
+  margin-top: 50px;
+  font-size: x-large;
+  text-align: center;
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+}
+
+.boton{
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#btn-verde{
+  background-color: greenyellow;
+}
+
+#btn-naranja{
+  background-color: orange;
+}
+
+#btn-cafe{
+  background-color: peru;
+}
+
+
+
 .pinguino-superior {
   top: 10%;
   left: 25%;
