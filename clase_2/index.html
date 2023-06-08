@@ -4,53 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AppDeGatos</title>
+    <link rel="stylesheet" href="/clase_2/style.css">
 </head>
 <body>
     <main>
-        <h1>CatPhotoApp</h1>
-        <h2>Cat Photos</h2>
+        <h2 id="titulo-principal">AppDeGatos</h2>
         <p>See more cat photos in our gallery</p>
         <!-- TODO: Clase 4 -->
         <!-- TODO: agregar enlace a imagenes de gatos -->
         <p>Haz click aquí para ver mas <a href="https://freecatphotoapp.com" target="_blank" rel="noopener noreferrer">imagenes de gatitos</a></p>
-        <a href="#parrafo-1">Parrafo 1</a>
-        <a href="#parrafo-2">Parrafo 2</a>
-        <a href="#parrafo-3">Parrafo 3</a>
-        <a href="#parrafo-4">Parrafo 4</a>
-        <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Un lindo gatito en naranja recostado sobre su espalda" height="300px" width="300px">
+        <br>
+
+        <a href="#" target="_blank" rel="noopener noreferrer">
+            <img class="imagen-de-gato" src="/clase_2/src/gatito_con_frio.jfif" alt="Un lindo gatito en naranja recostado sobre su espalda">
+        </a>
 
         <hr>
-        <!-- TODO: Listas no ordenadas - ul -->
         <h3>Listas de Gatos</h3>
-        <p>Cosas que los gatos <em>aman</em>:</p>
-        <ul>
-            <li>Mente Gatuna</li>
-            <li>Apuntadores Láser</li>
-            <li><s>Lasaña</s></li>
-        </ul>
-
-        <img src="/clase_2/Lasania.png" alt="Una deliciosa lasaña" height="300px" width="300px">
-
+        <div>
+            <!-- TODO: Listas no ordenadas - ul -->
+            <p>Cosas que los gatos <em>aman</em>:</p>
+            <ul id="lista-gatos-aman" class="lista-de-gatos">
+                <li>Mente Gatuna</li>
+                <li>Apuntadores Láser</li>
+                <li><s>Lasaña</s></li>
+            </ul>
+            <img class="imagen-de-gato" src="/clase_2/src/Lasania.png" alt="Una deliciosa lasaña">
+            
+            <!-- TODO: Listas ordenadas - ol -->
+            <p>Cosas que los gatos <strong>odian</strong></p>
+            <ol id="lista-gatos-odian" class="lista-de-gatos">
+                <li>Tratamiento antipulgas</li>
+                <li>Truenos</li>
+                <li>Otros gatos</li>
+            </ol>
+        </div>
+        <img class="imagen-de-gato" src="/clase_2/src/gatito.jfif" alt="Gato con botas">
         <hr>
-        <!-- TODO: Listas ordenadas - ol -->
-
-        <p>Cosas que los gatos <strong>odian</strong></p>
-        <ol>
-            <li>Tratamiento antipulgas</li>
-            <li>Truenos</li>
-            <li>Otros gatos</li>
-        </ol>
-
-        <!-- TODO: Parrafos -->
-        <h3 id="parrafo-1">Párrafo 1</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga ullam libero esse laboriosam magni atque, corrupti, at blanditiis deserunt ipsum minus harum perferendis unde aliquam vel id. Blanditiis, doloremque aliquam.</p>
-        <h3 id="parrafo-2">Párrafo 2</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem placeat ipsum nemo, eaque reprehenderit debitis laboriosam excepturi explicabo dolores nulla tempora porro! Neque obcaecati quasi, cupiditate repellat tempora vero consequuntur.</p>
-        <h3 id="parrafo-3">Párrafo 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur non aperiam tempora quaerat vitae, ipsa excepturi libero, possimus sit, dolores nulla fugit harum aliquam commodi iure cumque quod reprehenderit numquam.</p>
-        <h3 id="parrafo-4">Párrafo 4</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem minima odio dolorem nihil eius officiis veritatis quidem consequatur rem. Ea, beatae. Minus, sapiente laborum. Doloremque fugiat expedita ea adipisci maiores!</p>
 
         <!-- TODO: Clase 5 -->
         
@@ -83,8 +74,12 @@
             <button type="submit">Enviar</button>
         </form>
 
-
+        
     </main>
-
+    <!-- TODO: Clase 6 -->
+    <!-- TODO: pie de página -->
+    <footer>
+        <p><small>Sin derechos de autor - <a href="https://www.freecodecamp.org/espanol/">freeCodeCamp.org</a></small></p>
+    </footer>
 </body>
 </html>

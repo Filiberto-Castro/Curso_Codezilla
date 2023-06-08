@@ -1,0 +1,31 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p,
+ul,
+ol {
+    font-size: 20px;
+}
+
+.imagen-de-gato{
+    width: 300px;
+    border-width: 20px;
+    border-color: chocolate;
+    border-radius: 25px;
+    border-style: solid;
+}
+
+#titulo-principal{
+    font-size: 30px;
+    color: purple;
+}
+
+#lista-gatos-aman{
+    font-size: 15px;
+    color: blueviolet;
+}
+
+#lista-gatos-odian{
+    font-size: 18px;
+}
