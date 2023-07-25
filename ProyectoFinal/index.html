@@ -3,10 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Final</title>
+    <title>Batalla de manos</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
 </head>
 <body>
+
+    <!-- TODO: SIDEBAR -->
+
+    <nav id="sidebar" class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <h2 class="logo">DC</h2>
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">DevCode</span>
+                    <span class="profession">Web developer</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="https://github.com/Filiberto-Castro" target="_blank">
+                            <i class="ri-github-line icon"></i>
+                            <span class="text nav-text">Mi github</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="https://www.facebook.com/filiberto.kastrobernal" target="_blank">
+                            <i class='bx bxl-facebook icon' ></i>
+                            <span class="text nav-text">Mi facebook</span>
+                        </a>
+                    </li>
+
+                    <div>
+                        <h3 class="text">Herramientas usadas</h3>
+
+                        <li class="nav-link">
+                            <a href="https://developer.mozilla.org/es/docs/Glossary/HTML" target="_blank">
+                                <i class="ri-html5-line icon"></i>
+                                <span class="text nav-text">HTML</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank">
+                                <i class="ri-css3-line icon"></i>
+                                <span class="text nav-text">CSS</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">
+                                <i class='bx bxl-javascript icon' ></i>
+                                <span class="text nav-text">Javascript</span>
+                            </a>
+                        </li>
+                    </div>
+
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+    
+    <!-- TODO: SECCION DEL JUEGO -->
+
+    <section class="home">
+        <div id="container" class="container">
+            <div class="header-game">
+                <h1>¡Juguemos papel, piedra y tijera!</h1>
+                <a href="#" id="mode-toggle" class="dark-mode">
+                    <i class="ri-moon-line"></i>
+                </a>
+            </div>
+    
+            <div id="result">
+        
+                <div class="result-score">
+                    <h3 id="score-player">Puntuacion del jugador: </h3>
+                    <h2 id="score-round">3</h2>
+                    <h3 id="score-computer">Puntuacion de la maquina: </h3>
+                </div>
+                
+                <div id="start-text">
+                    Jugando...
+                </div>
+    
+                <div id="result-detail" class="result-detail">
+                    <img id="user-img" src="img/rock.svg">
+                    <h2>vs</h2>
+                    <img id="machine-img" src="img/rock.svg">
+                </div>
+    
+            </div>
+    
+            <div class="game-info">
+                <h2 id="game-count">5</h2>
+                <h3 class="text-message">¿Elegir tu movimiento, piedra, papel o tijera?</h3>
+            </div>
+    
+    
+            <div id="group-btn">
+                <button id="rock" type="button">
+                    <img src="img/rock.svg"/>
+                </button>
+                <button id="paper" type="button">
+                    <img src="img/paper.svg"/>
+                </button>
+                <button id="scissors" type="button">
+                    <img src="img/scissors.svg"/>
+                </button>
+            </div>
+        </div>
+    </section>
     
     <script src="script.js"></script>
 </body>
