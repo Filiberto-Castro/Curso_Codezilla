@@ -86,7 +86,7 @@ body.dark-mode{
     width: 250px;
     padding: 10px 14px;
     background: var(--bg-game--);
-    transition: var(--tran-05);
+    transition: width 0.5s ease;
     z-index: 100;
 }
 
@@ -391,6 +391,12 @@ h2#game-count.animate-counter {
         font-size: 25px;
     }
 
+    .sidebar{
+        position: absolute;
+        left: -250px;
+        z-index: -100;
+    }
+
     .sidebar.close {
         width: 88px;
     }
@@ -400,8 +406,18 @@ h2#game-count.animate-counter {
     }
 
     .home{
-        left: 88px;
-        width: calc(100% - 88px);
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
+    .sidebar.close ~ .home{
+        left: 0;
+        width: auto;
+    }
+
+    
 
 }
