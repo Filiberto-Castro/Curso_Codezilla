@@ -27,68 +27,71 @@ let drawScreen = () =>{
 let drawLevel = () => {
     for (const yElement of level){
         for(const xElement of yElement){
-            if (xElement == 1){ //1 = pared
-                context.fillStyle = "blue"; 
-                context.fillRect(x , y, sObj.dimension, sObj.dimension);
-            }else if (xElement == 4){
-                // 4 = comida
-                context.beginPath();
-                context.fillStyle = "#FEFF9F";
-                context.arc(
-                x + sObj.dimension / 2,
-                y + sObj.dimension / 2,
-                sObj.dimension / 8, 
-                0,
-                Math.PI * 2,
-                true
-                );
-                context.closePath();
-                context.fill();
-            } else if( xElement == 3){
-                //super comida / super Pill
-                context.beginPath();
-                context.fillStyle = "green";
-                context.arc(
-                x + sObj.dimension / 2,
-                y + sObj.dimension / 2,
-                sObj.dimension / 4, 
-                0,
-                Math.PI * 2,
-                true
-                );
-                context.closePath();
-                context.fill();
-            }else if (xElement == 5){
-                //pacman
-                context.beginPath();
-                context.fillStyle = "yellow"
-                context.arc(
-                x + sObj.dimension / 2,
-                y + sObj.dimension / 2,
-                sObj.dimension /2.8, 
-                Math.PI * 0.15,
-                Math.PI * 1.85,
-                false
-                );
-                context.lineTo(x+sObj.dimension/2,y+sObj.dimension/2)
-                context.closePath();
-                context.fill();
-            }else if (xElement == 2 ){ // fantasma
-                context.beginPath();
-                context.fillStyle = "#6A2CE3";
-                context.beginPath();
-                context.fillStyle = "purple"
-                context.arc(
-                x + sObj.dimension / 2,
-                y + sObj.dimension / 2,
-                sObj.dimension /2.8, 
-                Math.PI * 0.15,
-                Math.PI * 1.85,
-                false
-                );
-                context.lineTo(x+sObj.dimension/2,y+sObj.dimension/2)
-                context.closePath();
-                context.fill();
+            switch(xElement){
+                case 1: // PARED
+                    context.fillStyle = "blue"; 
+                    context.fillRect(x , y, sObj.dimension, sObj.dimension);
+                    break;
+                case 2: // FANTASMA
+                    context.beginPath();
+                    context.fillStyle = "#6A2CE3";
+                    context.beginPath();
+                    context.fillStyle = "purple"
+                    context.arc(
+                    x + sObj.dimension / 2,
+                    y + sObj.dimension / 2,
+                    sObj.dimension /2.8, 
+                    Math.PI * 0.15,
+                    Math.PI * 1.85,
+                    false
+                    );
+                    context.lineTo(x+sObj.dimension/2,y+sObj.dimension/2)
+                    context.closePath();
+                    context.fill();
+                    break;
+                case 3: // SUPER COMIDA
+                    context.beginPath();
+                    context.fillStyle = "green";
+                    context.arc(
+                    x + sObj.dimension / 2,
+                    y + sObj.dimension / 2,
+                    sObj.dimension / 4, 
+                    0,
+                    Math.PI * 2,
+                    true
+                    );
+                    context.closePath();
+                    context.fill();
+                    break;
+                    case 4: // COMIDA
+                    context.beginPath();
+                    context.fillStyle = "#FEFF9F";
+                    context.arc(
+                    x + sObj.dimension / 2,
+                    y + sObj.dimension / 2,
+                    sObj.dimension / 8, 
+                    0,
+                    Math.PI * 2,
+                    true
+                    );
+                    context.closePath();
+                    context.fill();
+                    break;
+                case 5: // PACMAN
+                    context.beginPath();
+                    context.fillStyle = "yellow"
+                    context.arc(
+                    x + sObj.dimension / 2,
+                    y + sObj.dimension / 2,
+                    sObj.dimension /2.8, 
+                    Math.PI * 0.15,
+                    Math.PI * 1.85,
+                    false
+                    );
+                    context.lineTo(x+sObj.dimension/2,y+sObj.dimension/2)
+                    context.closePath();
+                    context.fill();
+                    break;
             }
             //Math.PI*0.15, Math.PI * 1.85, false
             x = x + sObj.dimension;
@@ -104,24 +107,27 @@ let movePacman = (dir, pos) => {
     let nextPos = 0,
         prevPos = 0;
 
-    if (dir === "ArrowLeft") {
-        arrowPosY = pos[1];
-        arrowPosX = pos[0] - 1;
-        nextPos = level[arrowPosY][arrowPosX];
-    }else if(dir === "ArrowRight"){
-        arrowPosY = pos[1];
-        arrowPosX = pos[0] + 1;
-        nextPos = level[arrowPosY][arrowPosX];
-    }
-
-    if (dir === "ArrowUp") {
-        arrowPosY = pos[1] - 1;
-        arrowPosX = pos[0];
-        nextPos = level[arrowPosY][arrowPosX];
-    } else if (dir === "ArrowDown") {
-        arrowPosY = pos[1] + 1;
-        arrowPosX = pos[0];
-        nextPos = level[arrowPosY][arrowPosX];
+    switch(dir){
+        case "ArrowLeft":
+            arrowPosY = pos[1];
+            arrowPosX = pos[0] - 1;
+            nextPos = level[arrowPosY][arrowPosX];
+            break;
+        case "ArrowRight":
+            arrowPosY = pos[1];
+            arrowPosX = pos[0] + 1;
+            nextPos = level[arrowPosY][arrowPosX];
+            break;
+        case "ArrowUp":
+            arrowPosY = pos[1] - 1;
+            arrowPosX = pos[0];
+            nextPos = level[arrowPosY][arrowPosX];
+            break;
+        case "ArrowDown":
+            arrowPosY = pos[1] + 1;
+            arrowPosX = pos[0];
+            nextPos = level[arrowPosY][arrowPosX];
+            break;
     }
 
     if ([0, 3, 4, 6].includes(nextPos)) {
@@ -137,70 +143,73 @@ let movePacman = (dir, pos) => {
     return pos;
 };
 
-
-
 let drawPacman = (dir, pos) => {
     let x = pos[0] * sObj.dimension;
     let y = pos[1] * sObj.dimension;
 
     clearRect(dir, pos);
 
-    if (dir === "ArrowLeft") {
-        context.beginPath();
-		context.fillStyle = "yellow";
-		context.arc(
-			x + sObj.dimension / 2,
-			y + sObj.dimension / 2,
-			sObj.dimension / 2.8,
-			Math.PI * 0.75,
-			Math.PI * 1.25,
-			true
-		);
-		context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
-		context.closePath();
-		context.fill();
-    }else if(dir === "ArrowRight"){
-        context.beginPath();
-		context.fillStyle = "yellow";
-		context.arc(
-			x + sObj.dimension / 2,
-			y + sObj.dimension / 2,
-			sObj.dimension / 2.8,
-			Math.PI * 0.15,
-            Math.PI * 1.85,
-			false
-		);
-		context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
-		context.closePath();
-		context.fill();
-    }else if(dir === "ArrowUp"){
-        context.beginPath();
-		context.fillStyle = "yellow";
-		context.arc(
-			x + sObj.dimension / 2,
-			y + sObj.dimension / 2,
-			sObj.dimension / 2.8,
-			Math.PI * 1.70,
-            Math.PI * 1.30,
-			false
-		);
-		context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
-		context.closePath();
-		context.fill();
-    }else if(dir === "ArrowDown"){
-        context.beginPath();
-		context.fillStyle = "yellow";
-		context.arc(
-			x + sObj.dimension / 2,
-			y + sObj.dimension / 2,
-			sObj.dimension / 2.8,
-			Math.PI * 0.70,
-            Math.PI * 0.30,
-			false
-		);
-		context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
-		context.closePath();
-		context.fill();
+    switch(dir){
+        case "ArrowLeft":
+            context.beginPath();
+            context.fillStyle = "yellow";
+            context.arc(
+                x + sObj.dimension / 2,
+                y + sObj.dimension / 2,
+                sObj.dimension / 2.8,
+                Math.PI * 0.75,
+                Math.PI * 1.25,
+                true
+            );
+            context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
+            context.closePath();
+            context.fill();
+            break;
+        case "ArrowRight":
+            context.beginPath();
+            context.fillStyle = "yellow";
+            context.arc(
+                x + sObj.dimension / 2,
+                y + sObj.dimension / 2,
+                sObj.dimension / 2.8,
+                Math.PI * 0.15,
+                Math.PI * 1.85,
+                false
+            );
+            context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
+            context.closePath();
+            context.fill();
+            break;
+        case "ArrowUp":
+            context.beginPath();
+            context.fillStyle = "yellow";
+            context.arc(
+                x + sObj.dimension / 2,
+                y + sObj.dimension / 2,
+                sObj.dimension / 2.8,
+                Math.PI * 1.70,
+                Math.PI * 1.30,
+                false
+            );
+            context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
+            context.closePath();
+            context.fill();
+            break;
+        case "ArrowDown":
+            context.beginPath();
+            context.fillStyle = "yellow";
+            context.arc(
+                x + sObj.dimension / 2,
+                y + sObj.dimension / 2,
+                sObj.dimension / 2.8,
+                Math.PI * 0.70,
+                Math.PI * 0.30,
+                false
+            );
+            context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
+            context.closePath();
+            context.fill();
+            break;
     }
 };
 
@@ -214,14 +223,12 @@ let clearRect = (dir, pos) => {
         sObj.dimension,
         sObj.dimension
     );
-    if (dir === "ArrowLeft"){
-        cRX++;
-    }else if(dir === "ArrowRight"){
-        cRX--;
-    }else if(dir === "ArrowUp"){
-        cRY++;
-    }else if(dir === "ArrowDown"){
-        cRY--;
+
+    switch(dir){
+        case "ArrowLeft": cRX++; break;
+        case "ArrowRight": cRX--; break;
+        case "ArrowUp": cRY++; break;
+        case "ArrowDown": cRY--; break;
     }
     context.fillRect(
         cRX * sObj.dimension,
