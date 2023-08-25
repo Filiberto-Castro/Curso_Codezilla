@@ -73,9 +73,22 @@ let drawLevel = () => {
                 context.lineTo(x+sObj.dimension/2,y+sObj.dimension/2)
                 context.closePath();
                 context.fill();
-            }else if (xElement == 2 ){ 
+            }else if (xElement == 2 ){ // fantasma
                 context.beginPath();
                 context.fillStyle = "#6A2CE3";
+                context.beginPath();
+                context.fillStyle = "purple"
+                context.arc(
+                x + sObj.dimension / 2,
+                y + sObj.dimension / 2,
+                sObj.dimension /2.8, 
+                Math.PI * 0.15,
+                Math.PI * 1.85,
+                false
+                );
+                context.lineTo(x+sObj.dimension/2,y+sObj.dimension/2)
+                context.closePath();
+                context.fill();
             }
             //Math.PI*0.15, Math.PI * 1.85, false
             x = x + sObj.dimension;
