@@ -3,7 +3,7 @@ import { setScreenObj, setGameLevel, drawScreen, drawLevel, movePacman} from "./
 import { getPos } from "./js/utility.js";
 
 let sObj = {
-    height: 500,
+    height: 400,
     width: 600,
     backgroundColor: "black",
     canvasId:"canvas1",

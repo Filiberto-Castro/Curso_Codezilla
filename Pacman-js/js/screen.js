@@ -4,6 +4,8 @@ let sObj = {};
 let x = 0,
     y = 0;
 let level = []
+const scoreText = document.getElementById('score-text')
+let score = 0;
 
 let setScreenObj = (screenObj) => {
      sObj = screenObj;
@@ -99,14 +101,30 @@ let movePacman = (dir, pos) => {
         nextPos = level[arrowPosY][arrowPosX];
     }
 
+    if (dir === "ArrowUp") {
+        arrowPosY = pos[1] - 1;
+        arrowPosX = pos[0];
+        nextPos = level[arrowPosY][arrowPosX];
+    } else if (dir === "ArrowDown") {
+        arrowPosY = pos[1] + 1;
+        arrowPosX = pos[0];
+        nextPos = level[arrowPosY][arrowPosX];
+    }
+
     if ([0, 3, 4, 6].includes(nextPos)) {
         level[pos[1]][pos[0]] = 0; // level [x][y] ya me lo comi
+        if(level[arrowPosY][arrowPosX] == 4){ // si es comida
+            score++;
+            scoreText.innerHTML = `Score: ${score}`
+        }
         level[arrowPosY][arrowPosX] = 5; // pacman se movio
         pos = [arrowPosX, arrowPosY];
         drawPacman(dir, pos);
     }
     return pos;
 };
+
+
 
 let drawPacman = (dir, pos) => {
     let x = pos[0] * sObj.dimension;
@@ -142,6 +160,34 @@ let drawPacman = (dir, pos) => {
 		context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
 		context.closePath();
 		context.fill();
+    }else if(dir === "ArrowUp"){
+        context.beginPath();
+		context.fillStyle = "yellow";
+		context.arc(
+			x + sObj.dimension / 2,
+			y + sObj.dimension / 2,
+			sObj.dimension / 2.8,
+			Math.PI * 1.70,
+            Math.PI * 1.30,
+			false
+		);
+		context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
+		context.closePath();
+		context.fill();
+    }else if(dir === "ArrowDown"){
+        context.beginPath();
+		context.fillStyle = "yellow";
+		context.arc(
+			x + sObj.dimension / 2,
+			y + sObj.dimension / 2,
+			sObj.dimension / 2.8,
+			Math.PI * 0.70,
+            Math.PI * 0.30,
+			false
+		);
+		context.lineTo(x + sObj.dimension / 2, y + sObj.dimension / 2);
+		context.closePath();
+		context.fill();
     }
 };
 
@@ -159,6 +205,10 @@ let clearRect = (dir, pos) => {
         cRX++;
     }else if(dir === "ArrowRight"){
         cRX--;
+    }else if(dir === "ArrowUp"){
+        cRY++;
+    }else if(dir === "ArrowDown"){
+        cRY--;
     }
     context.fillRect(
         cRX * sObj.dimension,
